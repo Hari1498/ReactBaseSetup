@@ -7,6 +7,7 @@ import {
   CheckboxInput,
 } from "./index.ts";
 import { useAppContext } from "../contexts/AppContext.tsx";
+import { getState } from "./services/api-collection.service.ts";
 
 interface FormValues {
   username: string;
@@ -21,6 +22,9 @@ const MyForm = () => {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data);
+    getState().then((response) => {
+      console.log(response);
+    });
   };
 
   return (
